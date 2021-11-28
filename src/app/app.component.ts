@@ -14,7 +14,15 @@ export class AppComponent implements OnInit {
   constructor(private titleService: Title,private route: ActivatedRoute, private service :GeneralService,private metaTagService: Meta ) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
+    this.metaTagService.removeTag("property='og:title'");
+    this.metaTagService.removeTag("property='og:url'");
+    this.metaTagService.removeTag("property='og:image'");
+    this.metaTagService.removeTag("property='og:description'");
+    this.metaTagService.removeTag("name='keywords'");
+    this.metaTagService.removeTag("name='author'");
+    this.metaTagService.removeTag("name='date'");
+
+    this.route.queryParams.subscribe((params:any) => {
       let id = params.id;
       if( id && id !== '' && id !== undefined){
         this.service.blog().subscribe((res: any) => {
