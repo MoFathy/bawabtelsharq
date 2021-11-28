@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
           this.blogs = res.data;
           this.blog_datails =  res.data.filter((el :any) => el.id == id)[0];
           this.titleService.setTitle(this.blog_datails.blog_title);
-          this.metaTagService.addTags([
+          this.metaTagService.updateTag([
             { name: 'keywords', content: this.blog_datails.blog_title },
             { name: 'robots', content: 'index, follow' },
             { name: 'author', content: this.blog_datails.blog_title },
@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
         this.service.blog().subscribe((res: any) => {
           this.blogs = res.data;
           this.titleService.setTitle(res.data[0].blog_title);
-          this.metaTagService.addTags([
+          this.metaTagService.updateTag([
             { name: 'keywords', content: res.data[0].blog_title },
             { name: 'robots', content: 'index, follow' },
             { name: 'author', content: res.data[0].blog_title },
