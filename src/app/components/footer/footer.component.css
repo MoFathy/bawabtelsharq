@@ -1,0 +1,169 @@
+footer {
+    padding: 10px 4%;
+    color: white;
+}
+
+footer h6 {
+    font-size: 16px;
+}
+
+.footer {
+    max-width: 1420px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+p {
+    font-size: 12px;
+}
+
+.footer .form-control {
+    opacity: 0.31;
+    background-color: #ffffff;
+    border: none;
+}
+
+.btn-danger {
+    opacity: 0.31;
+    background-color: #ffffff;
+    border: none;
+    color: rgb(87, 85, 85);
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.35;
+    letter-spacing: normal;
+    text-align: left;
+    padding-bottom: 10px !important;
+}
+
+.fab {
+    font-size: 20px;
+}
+
+.footer a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+footer {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/*************************************************************************************************************************/
+
+.footers .bawbtalsharq {
+    font-size: 13px;
+    font-weight: bold;
+    color: #f8f8f8;
+}
+
+.footers p {
+    font-size: 13px;
+    font-weight: 300;
+    text-decoration: justify !important;
+    line-height: 1.7;
+    color: #f8f8f8;
+}
+
+.get-in-touch p {
+    font-size: 22px;
+    font-weight: 300;
+    color: #e16306;
+}
+
+.get-in-touch button {
+    color: #e16306 !important;
+}
+
+.footers.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3),
+.footers.input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-radius: none !important;
+}
+
+.footers .title-footer h2 {
+    font-size: 20px;
+    margin-top: 15px;
+    font-weight: 900;
+}
+
+.icon-footer {
+    width: 20px;
+}
+
+.footers .hours {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.footers a {
+    color: #fff;
+    font-size: 13px;
+}
+
+.icons-footer {
+    margin-top: 10px;
+}
+
+.footer-line {
+    height: 1.5px;
+    background: #fff;
+    margin-top: -10px;
+}
+
+.social-icon {
+    width: 30px;
+}
+
+.social-footer {
+    margin-top: 15px;
+}
+
+.social-footer a {
+    font-size: 14px;
+    text-decoration: none;
+    margin-left: 0px
+}
+
+.sub-title-footer {
+    margin-top: 20px;
+}
+
+.sub-title-footer a {
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.app-footer {
+    margin-top: 10px;
+    width: 35%;
+}
+
+.footers h3 {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.conactus {
+    padding-left: 70px;
+}
+
+.join {
+    padding-left: 50px;
+}
+
+.footers a:hover {
+    color: #e16306 !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .conactus,
+    .join {
+        padding-left: 20px;
+    }
+}

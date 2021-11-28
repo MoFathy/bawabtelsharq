@@ -1,0 +1,218 @@
+<header class="section-header header">
+    <section class="header-main">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <!-----------logo------->
+                <div class="col-xl-3 col-lg-3 col-md-12">
+                    <div class="container">
+                        <a [routerLink]="['/']" class="brand-wrap">
+                            <img class="logo img-fliud " src="../../../assets/images/logo/logo.png">
+                        </a>
+                    </div>
+                </div>
+                <!--------- search---------.// -->
+                <div class="col-xl-6 col-lg-5 col-md-7 ">
+
+                    <form class="search-header" action="search.html">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="What are you looking for?" name="search" id="searchInput">
+                            <button style="background: #e16036;" class="btn" type="button " id="searchbtn"><i class="fa fa-arrow-right"></i> Search</button>
+                        </div>
+                    </form>
+                </div>
+                <!-------------icons-----------// -->
+                <div class="col-xl-3 col-lg-4 col-md-5 ">
+                    <div class="widgets-wrap align-items-center text-center">
+
+                        <!--------category------->
+                        <div class="widget-header   category-header " [ngStyle]="{'margin-top': '0'}">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary dropdown-toggle " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-bars"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+                                    <div class="category-slider-maylike">
+                                        <ul class="menu " id="category">
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--------setting-------->
+                        <div class="widget-header  ">
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle widget-view" href="http://example.com" data-toggle="dropdown">
+                                    <img class="dropbtn d-block m-auto" style="width: 25px;height: 25px" src="../../../assets/images/header-icon/settings-1.svg">
+                                </a>
+                                <div class="dropdown-menu dropdown-content5 dropdown-menu-left">
+                                    <h3>Allowing</h3>
+                                    <ul class="allowing">
+                                        <li class="drop-click"><img src="../../../assets/images/header-icon/not.png"><span>Allow BAWABT ALSHARQ notifications</span>
+                                            <span>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="myCheck" onchange="myFunctionCheck()" >
+                                            </div>
+                                        </span>
+                                        </li>
+                                    </ul>
+                                    <h3>Main</h3>
+                                    <ul class="help">
+                                        <li class="">
+                                            <button class="drop-button " id="Country"><img src="../../../assets/images/header-icon/country.png"> Country
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                            <ul class="Country dropdown-container">
+                                                <select id="select-country" placeholder="Select Country"></select>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="help">
+                                        <li class="">
+                                            <button class="drop-button" id="Language"><img src="../../../assets/images/header-icon/globe.svg">Language
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                            <ul class="Language dropdown-container">
+                                                <select id="select-lang" placeholder="Select Language"></select>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="help">
+                                        <li class="">
+                                            <button class="drop-button" id="Currency"><img src="../../../assets/images/header-icon/money.png">Currency
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                            <ul class="Currency dropdown-container">
+                                                <select id="select-currency" placeholder="Select Currency"></select>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h3>Help</h3>
+                                    <ul class="help">
+                                        <li class="">
+                                            <button class="drop-button" id="Contact"><img src="../../../assets/images/header-icon/icon-call-3x.png"> Contact us
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                            <ul class="Contact dropdown-container">
+                                                <a style="cursor:pointer;">
+                                                    <li id="phonepop"><img src="../../../assets/images/header-icon/icon-call-3x.png">Phone Number</li>
+                                                </a>
+                                                <a href="contact-us.html">
+                                                    <li><img src="../../../assets/images/header-icon/icon-mail-3x.png">Send Message</li>
+                                                </a>
+                                                <a id="locationpop" style="cursor:pointer;">
+                                                    <li><img src="../../../assets/images/header-icon/icon-metro-location-3x.png">Location</li>
+                                                </a>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="help">
+                                        <li class="">
+                                            <a [routerLink]="['/about-us']">
+                                                <button class="drop-button"><img src="../../../assets/images/header-icon/information.png">About us<i class="fas fa-chevron-right"></i>
+                                                </button>
+                                            </a>
+
+                                            <ul id="dropdown-container">
+
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-header  ">
+                            <div class=" nav-item dropdown">
+                                <a class="nav-link dropdown-toggle widget-view" href="http://example.com" data-toggle="dropdown">
+                                    <img class="dropbtn d-block m-auto" style="width: 25px;height: 25px" src="../../../assets/images/header-icon/bell-1.svg">
+                                </a>
+                                <div class="dropdown-menu dropdown-content" aria-labelledby="dropdownMenu2">
+                                    <h3>Notifications</h3>
+                                    <span class="drop-drop">
+                                        <div class="dp">
+                                            <button class="ddp"> . . . </button>
+                                            <div class="dc">
+                                                <ul>
+                                                    <li><i class="far fa-play-circle"></i><a href="notification.html">Open Notification</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <ul id="getNotifications">
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--------language-------->
+                        <div class="widget-header language  ">
+                            <div class="nav-item dropdown" style="    text-transform: uppercase;">
+                                <!-- //will be added later -->
+                                <!-- <ng-container *ngFor="let localization of translateService.getLangs()">
+                                    <a class="nav-link dropdown-toggle en" href="#" data-toggle="dropdown" id="mainLangHeader" style="color:#232323 !important;text-transform: uppercase;margin-top: -6px;" *ngIf="localization === translateService.currentLang">{{localization}}</a>
+                                </ng-container>
+                                <div class="dropdown-menu dropdown-menu-right" id="getlanguage">
+                                    <ng-container *ngFor="let localization of translateService.getLangs()">
+                                        <a class="dropdown-item" href="#" data-lang="ar" *ngIf="localization !== translateService.currentLang" (click)="translateSite(localization)">{{localization}}</a>
+                                    </ng-container>
+                                </div> -->
+                            </div>
+                        </div>
+                        <!--------profile-------->
+                        <div class="widget-header ">
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle widget-view" href="#" data-toggle="dropdown" id="profileImage">
+                                    <img src="../../../assets/images/header-icon/guest-user.svg" class="img-fliud d-block m-auto">
+                                </a>
+                                <div id="myDropdown2" class="dropdown-content2 dropdown-menu">
+                                    <div class="profile" id="profile22"></div>
+                                    <ul class="pro">
+                                        <li class="pro-">
+                                            <ul class="pro-1" *ngIf="isLogged">
+                                                <a [routerLink]="['/user_profile']">
+                                                    <li><img src="../../../assets/images/icon-git-compare.png"><span>my account</span><i class="fas fa-angle-right"></i></li>
+                                                </a>
+                                                <a id="savedLink">
+                                                    <li><img src="../../../assets/images/header-icon/icon-bookmark-3x.png"><span>Saved</span><i class="fas fa-angle-right"></i></li>
+                                                </a>
+                                                <a id="historyLink">
+                                                    <li><img src="../../../assets/images/icon-timer.png"><span>Search History</span><i class="fas fa-angle-right"></i></li>
+                                                </a>
+                                            </ul>
+                                            <ul class="pro-2">
+                                                <a id="messageCenterLink">
+                                                    <li>
+                                                        <img src="../../../assets/images/icon-mail.png"><span>Quotaions Center</span><i class="fas fa-angle-right"></i>
+                                                    </li>
+                                                </a>
+                                                <a [routerLink]="['/faq']">
+                                                    <li>
+                                                        <img src="../../../assets/images/icon-git-compare.png">
+                                                        <span>FAQ</span><i class="fas fa-angle-right"></i>
+                                                    </li>
+                                                </a>
+                                                <a [routerLink]="['/privacy']">
+                                                    <li><img src="../../../assets/images/privacy.png"><span>Privacy & Security</span><i class="fas fa-angle-right"></i></li>
+                                                </a>
+                                            </ul>
+                                            <ul class="pro-3" id="signs" >
+                                                <a [routerLink]="['/login']" *ngIf="!isLogged">
+                                                    <li><img src="../../../assets/images/icon-log-out-3x.png"><span>login</span><i class="fas fa-angle-right"></i></li>
+                                                </a>
+                                                <a id="logoutapi" href="javascript:void(0)" *ngIf="isLogged">
+                                                    <li (click)="logout()"><img src="../../../assets/images/icon-log-out.png"><span >Log out</span><i class="fas fa-angle-left" ></i></li>
+                                                </a>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>

@@ -1,0 +1,20 @@
+<!--- bog-details --->
+<section class="blog-details" id="blogDetails">
+
+
+    <h2 class="text-center"> </h2>
+    <div class="container" *ngIf="blog_details">
+        <div class="blog-details-img">
+            <img src={{blog_details.blog_image}} class=" d-block m-auto img-fluid" alt="..." />
+            <div class="blog-details-date">
+                <ul style="padding-left:0.5rem;">
+                    <li style="margin-bottom:-2px;margin-right:5px;">
+                        <img src="../../../../assets/images/calendar.png" class="img-fluid d-block m-auto calender" width="15px" />
+                    </li>
+                    <li class="date">{{blog_details.blog_date}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="blog-details-p">{{stripHtml(blog_details.blog_details)}}</div>
+    </div>
+</section>

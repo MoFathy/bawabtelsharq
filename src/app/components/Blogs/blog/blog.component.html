@@ -1,0 +1,27 @@
+<!--============= start blog ==================-->
+<div class="main-blog">
+    <div class="linee1">
+        <h2 class="text-center">Blog</h2>
+    </div>
+    <!---card-->
+    <section class="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let blog of blogs.data">
+                    <div class="card" style="width: 18rem;">
+                        <a routerLink="/blog//{{blog.id}}">
+                            <img src={{blog.blog_image}} class=" d-block m-auto img-fluid" alt="...">
+                        </a>
+                        <p class="blog-date">{{blog.blog_date}}</p>
+                        <div class="card-body">
+                            <a routerLink="/blog_details//{{blog.id}}">
+                                <h5 class="card-title">{{blog.blog_title}}</h5>
+                            </a>
+                            <p class="card-text">{{stripHtml(blog.blog_details) | slice:0:80}}...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,50 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
-import { GeneralService } from './general.service';
-
+import { Component } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  blogs: any = [];
-  blog_datails: any;
-  constructor(private titleService: Title,private route: ActivatedRoute, private service :GeneralService,private metaTagService: Meta ) { }
+export class AppComponent {
+  title = 'my-app';
+  currentRoute: string = "";
 
-  ngOnInit(): void {
-    // this.route.queryParams.subscribe((params:any) => {
-    //   let id = params.id;
-    //   if( id && id !== '' && id !== undefined){
-    //     this.service.blog().subscribe((res: any) => {
-    //       this.blogs = res.data;
-    //       this.blog_datails =  res.data.filter((el :any) => el.id == id)[0];
-    //       this.titleService.setTitle(this.blog_datails.blog_title);
-    //       this.metaTagService.addTags([
-    //         { name: 'keywords', content: this.blog_datails.blog_title },
-    //         { name: 'robots', content: 'index, follow' },
-    //         { name: 'author', content: this.blog_datails.blog_title },
-    //         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    //         { name: 'date', content: this.blog_datails.blog_date, scheme: 'YYYY-MM-DD' },
-    //         { property: 'og:title', content: this.blog_datails.blog_title },
-    //         { property: 'og:url', content: `https://bawabtelsharq.herokuapp.com/?id=${this.blog_datails.id}` },
-    //         { property: 'og:image', content: this.blog_datails.blog_image },
-    //         { property: 'og:description', content: this.blog_datails.blog_title },
-    //         { charset: 'UTF-8' }
-    //       ]);
-    //     });
-    //   }else{
-        
-    //   }
-    // });
-  }
+  constructor(private router: Router,
+    // public translateService: TranslateService
+    ){
+    // translateService.addLangs(['en', 'ar']);
+    // translateService.setDefaultLang('en');
+    // let oldLang= localStorage.getItem('language') ?? 'en';
 
-
-  // selectBlog(id: any){
-  //   console.log(id);
-    
-  //   window.location.replace(`/?id=${id}`);
-  //   // window.location.href = window.location.pathname + `?id=${id}`;
-  // }
+    // this.translateService.use(oldLang);
+    router.events.pipe(filter((event : any) => event instanceof NavigationEnd))
+          .subscribe((event : any) => 
+           {
+              this.currentRoute = event.url;          
+              console.log(this.currentRoute);
+           });
+    }
 }

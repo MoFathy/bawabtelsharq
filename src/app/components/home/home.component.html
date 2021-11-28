@@ -1,0 +1,363 @@
+<section class="category-slider-maylike">
+    <div class=" container-fluid">
+        <div class="row justify-content-center">
+            <!--------------category----------------->
+            <div class="col-md-3 col-sm-12 dropdown  categories mt-0 ">
+                <div class=" collapse d-md-block " id="navbarSupportedContent">
+
+                    <div class="btn-category">
+                        <span class="head-category text-center d-block m-auto"> All Categories </span>
+                    </div>
+                    <ul class="menu ">
+                        <ng-container *ngFor="let user of users.data ; let i=index">
+                            <li class="menus c{{i}} position-relative" *ngIf="i<10">
+                                <a routerLink="/category/{{user.category_id}}"><img src={{user.image}} style="width:38px ;height:38px" class="f{{i}}"><span class="position-absolute top-50 start-0 translate-middle-y ml-5">{{user.category}}</span><i class="fas fa-angle-right"></i></a>
+                                <ul class="sub-menu">
+                                    <li class="row" id="sub_category">
+                                        <ul>
+                                            <a *ngFor="let sub_user of user.sub_catregory" routerLink="/category/{{sub_user.category_id}}">
+                                                <li class="col-lg-6 col-md-12  col-6 mb-2"><img src={{sub_user.image}} style="width:30px ;height:30px" class="img-fluid "><span>{{sub_user.category}}</span></li>
+                                            </a>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ng-container>
+                        <div class=" mt-3  more-category">
+                            <a [routerLink]="['/categories']" class="text-center ">More Categories</a> <i class="fas fa-angle-double-right ml-1"></i>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-12">
+                <div class="row">
+                    <!-------------slider----------------->
+                    <div class="col-lg-9 col-md-8 slider mt-4 ">
+                        <div class="row ">
+                            <ngb-carousel>
+                                <ng-container *ngIf="homes.data && homes.data.sliders.length > 0">
+                                    <ng-template ngbSlide *ngFor="let slider of homes.data.sliders">
+                                        <div class="picsum-img-wrapper">
+                                            <img src={{slider.img}} alt="Random first slide">
+                                        </div>
+                                    </ng-template>
+                                </ng-container>
+                            </ngb-carousel>
+                            <div class="col-md-12 items-btn ">
+                                <div class="container ">
+                                    <div class="row ">
+                                        <div class="col-md-4 ">
+                                            <a routerLink="/suppliers">
+                                                <div class="items items1 text-center ">
+                                                    <img src="../../../assets/images/icon-crown.svg ">
+                                                    <p>Suppliers</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <a routerLink="/guide_quotation">
+                                                <div class="items items2 text-center ">
+                                                    <img class=" img-fluid " src="../../../assets/images/group-714.svg ">
+                                                    <p>Get Quotation</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <a>
+                                                <div class="items items3 text-center ">
+                                                    <img class=" img-fluid " height="auto " src="../../../assets/images/Technical-Support.svg ">
+                                                    <p>Technical Support</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-------------may-like----------------->
+                    <div class="col-lg-3 col-md-4 col-sm-12 You-May-Like ">
+                        <div class="btn-category ">
+                            <span class="head-category text-center d-block m-auto "> You May Like </span>
+                        </div>
+                        <div class="may-like">
+                            <a href="product-details/{{maylike.product_id}}" *ngFor="let maylike of maylikes.data">
+                                <div class="media media">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <img class="align-self-center " src={{maylike.image_path}} alt="Generic placeholder image">
+                                        </div>
+                                        <div class="col-9">
+                                            <div class="media-body">
+                                                <h6 class=""> {{maylike.product.substring(0, 15) + '...'}} </h6>
+                                                <p> {{maylike.price}} </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ========================= SECTION------supplier-------- ========================= -->
+<section class="suppliers  mt-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 ">
+                <ul>
+                    <li>
+                        <h1 class="mb-4"> Our Golden Suppliers</h1>
+                    </li>
+                    <li><a class="next1 view-all1" routerLink="/suppliers" [queryParams]="{type: 'golden_suppliers'}" routerLinkActive="router-link-active">See All</a></li>
+                </ul>
+            </div>
+            <ng-container *ngIf="homes.data && homes.data.suppliers.length > 0">
+                <p-carousel [value]="homes.data.suppliers" [numVisible]="6" [showIndicators]="false" [showNavigators]="false" [autoplayInterval]="3000" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+                    <ng-template let-slider pTemplate="item">
+                        <div class="supplier-slick">
+                            <div class="supplier-info ">
+                                <a class="link-supplier" routerLink="/company_profile/{{slider.id}}">
+                                    <img src={{slider.image}} class="img-fluid d-block m-auto img-supplier">
+                                    <h5> {{slider.title}} </h5>
+                                    <p> {{slider.categoryng }} </p>
+                                    <ul class="year">
+                                        <li><img src="../../../assets/images/icon-timer.png"></li>
+                                        <li><span> {{slider.year}} </span></li>
+                                    </ul>
+                                </a>
+                            </div>
+
+                        </div>
+                    </ng-template>
+                </p-carousel>
+            </ng-container>
+        </div>
+    </div>
+</section>
+
+
+<!-- =================== SECTION-----Most Popular in Country-------- ================== -->
+<ng-container *ngIf="homes.data && homes.data.categories.length > 0">
+    <div *ngFor="let categorys of homes.data.categories; let y = index ">
+        <ng-container *ngIf="y == 0 || y == 2 || y == 4">
+            <div *ngFor="let infos of homes.data.country_products; let x = index">
+                <section *ngIf="(x==0 && y==0)|| (x==1 && y==2) || (x==2 && y==4) " class="Most-Popular">
+                    <div class="container-fluid" id="countryProducts">
+                        <div class="row Most">
+                            <div class="col-md-3">
+                                <div id="con_mostcate">
+                                    <a routerLink="/product_by_country/{{infos.country_id}}">
+                                        <div class="Most-Popular-name position-relative">
+                                            <h5 class="  position-absolute top-50 start-0 translate-middle-y">{{infos.name}}</h5>
+                                            <i class="fas   position-absolute top-50 end-0 translate-middle-y  fa-external-link-square-alt"></i>
+                                        </div>
+                                    </a>
+                                    <div *ngFor="let info of infos.products ; let i = index">
+                                        <div class="popular-item logo position-relative item{{i%4}} '" *ngIf="i == 0">
+                                            <ul>
+                                                <li>
+                                                    <h2 class="Egyption-Food position-absolute top-0 name-product start-0 mt-2 ml-2">
+                                                        <a routerLink="product-details/{{info.id}}">{{info.name.substring(0, 15) + '...'}}</a>
+                                                    </h2>
+                                                </li>
+                                                <li class="position-absolute top-0 end-0">
+                                                    <ul class="icon-pop">
+                                                        <li>
+                                                            <a routerLink="product-details/{{info.id}}">
+                                                                <img src="../../../assets/images/icon-feather-bookmark-1.png" class="bookmark saveItem">
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                            <a routerLink="product-details/{{info.id}}">
+                                                <img src={{info.image}} class=" img-product position-absolute top-50 start-50 translate-middle   img-fluid">
+                                            </a>
+                                            <h5 class="position-absolute  bottom-0 end-0  translate-middle-y ml-2">{{info.category}}</h5>
+                                            <h6 class="position-absolute bottom-0 start-0 ml-2">{{info.price}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9  slick">
+                                <div class="row" id="slicks">
+                                    <div class="col-md-3 col-sm-6 " *ngFor="let info of infos.products ; let x = index">
+                                        <div *ngIf="x < 8">
+                                            <div class="popular-item position-relative item{{ x % 4 }}  ">
+                                                <ul>
+                                                    <li>
+                                                        <h2 class="Egyption-Food position-absolute top-0 start-0 mt-2 ml-2">
+                                                            <a routerLink="product-details/{{info.id}}" class="title"> {{info.name.substring(0, 15) + '...'}}</a>
+                                                        </h2>
+                                                    </li>
+                                                    <li class="position-absolute top-0 end-0">
+                                                        <ul class="icon-pop">
+                                                            <li>
+                                                                <a href="javascript:void(0)"><img src="../../../assets/images/icon-feather-bookmark-1.png" class="bookmark saveItem"></a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                <a routerLink="product-details/{{info.id}}">
+                                                    <img src={{info.image}} class="position-absolute bottom-0 popular-imeage end-0 img-fluid">
+                                                </a>
+                                                <h5 class="position-absolute top-50 start-0 translate-middle-y ml-2">{{info.category}}</h5>
+                                                <h6 class="position-absolute bottom-0 start-0 ml-2">{{info.price}}</h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </ng-container>
+        <section class="popular-categories">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 mt-3">
+                        <ul style="margin-left:-2rem !important;">
+                            <li><span><a class="next view-all" >See All</a></span></li>
+                            <li>
+                                <div class="Line-1"></div>
+                            </li>
+                            <li class="Shoes-Accesories"><span>{{categorys.name}} </span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p-carousel [value]="categorys.data" [numVisible]="7" [showIndicators]="false" [showNavigators]="true" [autoplayInterval]="0" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+                            <ng-template let-category pTemplate="item">
+                                <div class="card-category">
+                                    <div class="">
+                                        <div class="card position-relative ">
+                                            <div class="card' + [r % 3] + '">
+                                                <a routerLink="product-details/{{category.id}}"> <img src={{category.image}} class="card-img-top1 img-fluid h-50 mx-auto d-block" alt="{{category.name.substring(0, 15) + '...'}}"></a>
+                                                <div class="card-body">
+                                                    <h5 class="card-title position-absolute top-50 start-0 translate-middle-y mt-4 ml-2"><a routerLink="product-details/{{category.id}}">{{category.name.substring(0, 15) + '...'}}</a></h5>
+                                                </div>
+                                                <ul class="mt-3">
+                                                    <li class="float-left">
+                                                        <p class="card-text position-absolute bottom-0 start-0 mb-2 ml-4"><small class="text-muted">{{category.price}}</small></p>
+                                                    </li>
+                                                    <li class="float-right">
+                                                        <a href="javascript:void(0)"><img src="../../../assets/images/icon-feather-bookmark-1.png" class="bookmark saveItem position-absolute bottom-0 end-0  mb-3"></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </p-carousel>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="index-form" *ngIf="( y==2)">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="line-form"></div>
+                        <p>RFQ Easy Steps</p>
+                        <div class="row index-form-content">
+                            <div class="col-1">
+                                <div class="num">1</div>
+                            </div>
+                            <div class="col-11">
+                                <span>Product Basic Information</span>
+                                <p>Name , Category , Details , ....</p>
+                            </div>
+                        </div>
+                        <div class="row index-form-content mt-3">
+                            <div class="col-1">
+                                <div class="num">2</div>
+                            </div>
+                            <div class="col-11">
+                                <span>Supplier Capability</span>
+                                <p>Certifications , ....</p>
+                            </div>
+                        </div>
+                        <div class="row index-form-content mt-3">
+                            <div class="col-1">
+                                <div class="num">3</div>
+                            </div>
+                            <div class="col-11">
+                                <span>Shipping and Payment</span>
+                                <p>Shipping Method , Destination , Currency , ....</p>
+                            </div>
+                        </div>
+                        <div class="row index-form-content mt-3">
+                            <div class="col-1">
+                                <div class="num">4</div>
+                            </div>
+                            <div class="col-11">
+                                <span>Submit Your Request</span>
+                                <p>Your request is being processed</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                        <div class="form-form">
+                            <h3>Request For Quotation</h3>
+                            <p>We arrive to whole world</p>
+                            <form class="mt-4">
+                                <div class="mb-4">
+                                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="What you are looking for?" id="rfqName">
+                                </div>
+                                <div class="mb-4">
+                                    <input type="number" class="form-control" placeholder="Quantity" id="rfqQuantity">
+                                </div>
+                                <select class="form-select mb-3" aria-label="Default select example" id="rfqCategories">
+                                </select>
+                                <button class="request d-block m-auto mt-4" type="button" id="rfqSubmit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</ng-container>
+
+<!--========= Download app ==================-->
+<section class="dowload-app">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <h1> Available Now ! </h1>
+                <p> Lead your own business from here, Now you can communicate with any seller around the world.</p>
+                <h3>Download App For Free!</h3>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <a href="https://apps.apple.com/eg/app/bawabt-alsharq/id1571480538" target="_blank"><img src="../../../assets/images/app-store2x.svg" class="img-fluid img-store img-store1" /></a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="https://play.google.com/store/apps/details?id=bawabtalsharq.com" target="_blank"><img src="../../../assets/images/google-play2x.svg" class="img-fluid img-store img-store2" /></a>
+                    </div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <a href="https://appgallery.huawei.com/app/C104435517" target="_blank">
+                            <img src="../../../assets/images/app-gallery2x.svg" class="img-fluid img-store" />
+                        </a>
+                    </div>
+                    <div class="col-md-3"></div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="img-download-app">
+                    <img src="../../../assets/images/illustration.jpg" class="img-fluid" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

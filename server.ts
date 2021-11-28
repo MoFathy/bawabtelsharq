@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
+ */
+import '@angular/localize/init';
 import 'zone.js/dist/zone-node';
 
 import { ngExpressEngine } from '@nguniversal/express-engine';
@@ -7,7 +11,20 @@ import { join } from 'path';
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
+import 'localstorage-polyfill';
+const domino = require('domino');
+const fs = require('fs');
+const path = require('path');
+const template = fs
+  .readFileSync(path.join('dist/bawabtelsharq/browser', 'index.html'))
+  .toString();
+const window = domino.createWindow(template);
 
+// Ignite UI browser objects abstractions
+(global as any).window = window;
+(global as any).document = window.document;
+
+global['localStorage'] = localStorage;
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
