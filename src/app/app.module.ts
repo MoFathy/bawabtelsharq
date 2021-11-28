@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,10 +10,11 @@ import { BlogComponent } from './blog/blog.component';
 @NgModule({
   declarations: [
     AppComponent,
-    BlogComponent
+    BlogComponent,
   ],
   imports: [
     HttpClientModule,
+    CommonModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule
   ],

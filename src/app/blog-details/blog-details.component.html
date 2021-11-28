@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem;">
+    <a href="">
+        <img src={{blog_datails.blog_image}} class=" d-block m-auto img-fluid" alt="..." >
+    </a>
+    <p class="blog-date">{{blog_datails.blog_date}}</p>
+    <div class="card-body">
+        <a href="">
+            <h5 class="card-title">{{blog_datails.blog_title}}</h5>
+        </a>
+        <p class="card-text" [innerHTML]="blog_datails.blog_details"></p>
+    </div>
+</div>
