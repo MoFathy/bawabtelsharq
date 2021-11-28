@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
             { name: 'date', content: this.blog_datails.blog_date, scheme: 'YYYY-MM-DD' },
             { property: 'og:title', content: this.blog_datails.blog_title },
-            { property: 'og:url', content: `https://bawabtelsharq.herokuapp.com/id=?${this.blog_datails.id}` },
+            { property: 'og:url', content: `https://bawabtelsharq.herokuapp.com/?id=${this.blog_datails.id}` },
             { property: 'og:image', content: this.blog_datails.blog_image },
             { property: 'og:description', content: this.blog_datails.blog_title },
             { charset: 'UTF-8' }
